@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{92000396
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Tests", "Tests\DataStructures.Tests\DataStructures.Tests.csproj", "{CDA18B19-9C6C-443A-8BEB-A2C96A994051}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trees", "DataStructures\Trees\Trees.csproj", "{03F6BACC-DC17-4D73-BC20-488DCDE8DCA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
         {CDA18B19-9C6C-443A-8BEB-A2C96A994051}.Debug|Any CPU.Build.0 = Debug|Any CPU
         {CDA18B19-9C6C-443A-8BEB-A2C96A994051}.Release|Any CPU.ActiveCfg = Release|Any CPU
         {CDA18B19-9C6C-443A-8BEB-A2C96A994051}.Release|Any CPU.Build.0 = Release|Any CPU
+        {03F6BACC-DC17-4D73-BC20-488DCDE8DCA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {03F6BACC-DC17-4D73-BC20-488DCDE8DCA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {03F6BACC-DC17-4D73-BC20-488DCDE8DCA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {03F6BACC-DC17-4D73-BC20-488DCDE8DCA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{002BC411-BE64-4168-8E10-0DC2422ED8BA} = {31709158-9591-4A84-8BD8-186D77192D15}
