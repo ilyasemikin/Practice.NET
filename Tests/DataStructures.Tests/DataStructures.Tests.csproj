@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\DataStructures\SearchTrees\SearchTrees.csproj" />
+    <ProjectReference Include="..\..\DataStructures\Trees\Trees.csproj" />
   </ItemGroup>
 
 </Project>
