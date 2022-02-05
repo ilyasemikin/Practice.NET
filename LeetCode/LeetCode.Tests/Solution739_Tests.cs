@@ -1,3 +1,4 @@
+using LeetCode.Solutions;
 using NUnit.Framework;
 
 namespace LeetCode.Tests;
