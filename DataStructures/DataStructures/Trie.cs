@@ -1,59 +1,22 @@
 ﻿namespace DataStructures;
 
-public class Trie<TInput, TItem>
-    where TItem : notnull
+public class Trie<TInput, TSymbol>
+    where TSymbol : notnull
 {
-    private class TrieNode
+    private readonly ITrieSymbolRetrieveStrategy<TInput, TSymbol> _trieItemsStrategy;
+    public TrieNode<TSymbol> Root { get; }
+
+    public Trie(ITrieSymbolRetrieveStrategy<TInput, TSymbol>? trieItemsStrategy = null)
     {
-        public readonly Dictionary<TItem, TrieNode> Childs = new Dictionary<TItem, TrieNode>();
-
-        public bool IsEnd { get; private set; }
-
-        internal void Insert(IEnumerable<TItem> items)
-        {
-            var cur = this;
-
-            foreach (var item in items)
-            {
-                if (!cur.Childs.ContainsKey(item))
-                    cur.Childs.Add(item, new TrieNode());
-
-                cur = cur.Childs[item];
-            }
-
-            cur.IsEnd = true;
-        }
-
-        public bool Contains(IEnumerable<TItem> items)
-        {
-            var cur = this;
-
-            foreach (var item in items)
-            {
-                if (!cur.Childs.TryGetValue(item, out var child))
-                    return false;
-
-                cur = child;
-            }
-
-            return cur.IsEnd;
-        }
-    }
-    
-    private readonly TrieNode _root;
-    private readonly ITrieSymbolRetrieveStrategy<TInput, TItem> _trieItemsStrategy;
-
-    public Trie(ITrieSymbolRetrieveStrategy<TInput, TItem>? trieItemsStrategy = null)
-    {
-        _root = new TrieNode();
+        Root = new TrieNode<TSymbol>();
 
         if (trieItemsStrategy is null)
         {
-            if (!typeof(IEnumerable<TItem>).IsAssignableFrom(typeof(TInput)))
+            if (!typeof(IEnumerable<TSymbol>).IsAssignableFrom(typeof(TInput)))
                 throw new InvalidOperationException();
 
-            var strategyType = typeof(DefaultTrieSymbolRetrieveStrategy<,>).MakeGenericType(typeof(TInput), typeof(TItem));
-            trieItemsStrategy = Activator.CreateInstance(strategyType) as ITrieSymbolRetrieveStrategy<TInput, TItem>;
+            var strategyType = typeof(DefaultTrieSymbolRetrieveStrategy<,>).MakeGenericType(typeof(TInput), typeof(TSymbol));
+            trieItemsStrategy = Activator.CreateInstance(strategyType) as ITrieSymbolRetrieveStrategy<TInput, TSymbol>;
 
             if (trieItemsStrategy is null)
                 throw new InvalidOperationException();
@@ -63,8 +26,8 @@ public class Trie<TInput, TItem>
     }
 
     public void Insert(TInput input)
-        => _root.Insert(_trieItemsStrategy.GetSymbols(input));
+        => Root.Insert(_trieItemsStrategy.GetSymbols(input));
 
     public bool Contains(TInput input)
-        => _root.Contains(_trieItemsStrategy.GetSymbols(input));
+        => Root.Contains(_trieItemsStrategy.GetSymbols(input));
 }
