@@ -1,4 +1,4 @@
-﻿namespace Algorithms;
+namespace Algorithms;
 
 public class List
 {
@@ -96,5 +96,35 @@ public class List
         comparer ??= Comparer<T>.Default;
 
         return sequence.Any(item => comparer.Compare(item, it.Current) == 0 && !it.MoveNext());
+    }
+
+    public static bool IsNonDesc<T>(IEnumerable<T> sequence, T minValue, IComparer<T>? comparer = null)
+    {
+        comparer ??= Comparer<T>.Default;
+
+        var prev = minValue;
+        foreach (var item in sequence)
+        {
+            if (comparer.Compare(prev, item) > 0)
+                return false;
+            prev = item;
+        }
+
+        return true;
+    }
+    
+    public static bool IsNonAsc<T>(IEnumerable<T> sequence, T maxValue, IComparer<T>? comparer = null)
+    {
+        comparer ??= Comparer<T>.Default;
+
+        var prev = maxValue;
+        foreach (var item in sequence)
+        {
+            if (comparer.Compare(prev, item) < 0)
+                return false;
+            prev = item;
+        }
+
+        return true;
     }
 }
