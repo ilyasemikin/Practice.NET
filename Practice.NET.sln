@@ -7,9 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithms", "Algorithms", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms\Algorithms.csproj", "{002BC411-BE64-4168-8E10-0DC2422ED8BA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CD234BCC-8C99-4A45-BBD2-0B406A443350}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Tests", "Tests\Algorithms.Tests\Algorithms.Tests.csproj", "{7B862368-BFB1-4FE4-BB7B-6746DDD18764}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructures", "DataStructures", "{57A3E08A-4AF1-45F4-ACB0-D68C4A0200D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchTrees", "DataStructures\SearchTrees\SearchTrees.csproj", "{54AEA434-56A1-4936-93EA-57F0036EB1DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{92000396-583D-4034-9EF3-E9AA2F24E749}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Tests", "Tests\DataStructures.Tests\DataStructures.Tests.csproj", "{CDA18B19-9C6C-443A-8BEB-A2C96A994051}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,9 +34,18 @@ Global
 		{7B862368-BFB1-4FE4-BB7B-6746DDD18764}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B862368-BFB1-4FE4-BB7B-6746DDD18764}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B862368-BFB1-4FE4-BB7B-6746DDD18764}.Release|Any CPU.Build.0 = Release|Any CPU
+        {54AEA434-56A1-4936-93EA-57F0036EB1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {54AEA434-56A1-4936-93EA-57F0036EB1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {54AEA434-56A1-4936-93EA-57F0036EB1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {54AEA434-56A1-4936-93EA-57F0036EB1DB}.Release|Any CPU.Build.0 = Release|Any CPU
+        {CDA18B19-9C6C-443A-8BEB-A2C96A994051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {CDA18B19-9C6C-443A-8BEB-A2C96A994051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {CDA18B19-9C6C-443A-8BEB-A2C96A994051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {CDA18B19-9C6C-443A-8BEB-A2C96A994051}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{002BC411-BE64-4168-8E10-0DC2422ED8BA} = {31709158-9591-4A84-8BD8-186D77192D15}
-		{7B862368-BFB1-4FE4-BB7B-6746DDD18764} = {CD234BCC-8C99-4A45-BBD2-0B406A443350}
+        {54AEA434-56A1-4936-93EA-57F0036EB1DB} = {57A3E08A-4AF1-45F4-ACB0-D68C4A0200D3}
+        {CDA18B19-9C6C-443A-8BEB-A2C96A994051} = {92000396-583D-4034-9EF3-E9AA2F24E749}
 	EndGlobalSection
 EndGlobal
