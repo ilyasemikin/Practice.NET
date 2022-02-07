@@ -7,9 +7,10 @@ public class SinglyLinkedListNode<T> : ILinkedListNode<T>
     
     public T Value { get; set; }
 
-    public ILinkedList<T> List { get; }
+    public SinglyLinkedList<T> List { get; }
+    ILinkedList<T> ILinkedListNode<T>.List => List;
 
-    internal SinglyLinkedListNode(T value, ILinkedList<T> list, SinglyLinkedListNode<T>? next = null)
+    internal SinglyLinkedListNode(T value, SinglyLinkedList<T> list, SinglyLinkedListNode<T>? next = null)
     {
         Value = value;
         List = list;
