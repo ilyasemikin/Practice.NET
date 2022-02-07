@@ -29,20 +29,12 @@ public class SinglyLinkedList<T> : ILinkedList<T>
 
     public void AddToHead(T value)
     {
-        var head = new SinglyLinkedListNode<T>(value, this, Head);
-        
-        if (Head is not null)
-        {
-            Head = head;
-        }
-        else
-        {
-            Head = Tail = head;
-        }
+        Head = new SinglyLinkedListNode<T>(value, this, Head);
+        Tail ??= Head;
 
         Count++;
     }
-
+    
     public void Remove(ILinkedListNode<T> node)
     {
         if (node.List != this || node is not SinglyLinkedListNode<T> singlyNode)
@@ -50,27 +42,30 @@ public class SinglyLinkedList<T> : ILinkedList<T>
 
         if (Head == node)
         {
+            if (Head is null)
+                return;
+
             Head = Head.Next;
+            if (Head is null)
+                Tail = null;
+
+            Count--;
+        }
+        else
+        {
+            var prev = Head;
+            while (prev is not null && prev.Next != node)
+                prev = prev.Next;
+
+            if (prev is null)
+                throw new InvalidOperationException();
+
+            prev.Next = singlyNode.Next;
             Count--;
 
-            if (Count == 0)
-                Tail = Head = null;
-                
-            return;
+            if (Tail == node)
+                Tail = prev;
         }
-
-        var prev = Head;
-        while (prev is not null && prev.Next != node)
-            prev = prev.Next;
-
-        if (prev is null)
-            throw new InvalidOperationException();
-
-        prev.Next = singlyNode.Next;
-        Count--;
-
-        if (Tail == node)
-            Tail = prev;
     }
 
     public IEnumerator<T> GetEnumerator()
