@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DataStructures\LinkedLists\LinkedLists.csproj" />
     <ProjectReference Include="..\..\DataStructures\SearchTrees\SearchTrees.csproj" />
     <ProjectReference Include="..\..\DataStructures\Trees\Trees.csproj" />
     <ProjectReference Include="..\..\DataStructures\DataStructures\DataStructures.csproj" />
